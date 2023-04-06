@@ -1,0 +1,2 @@
+# List-Watch
+List-Watch 是 API Server 提供的接口，本质上还是基于 etcd 提供的 list-watch 功能。所谓 list 就是将一个 apiObject 全部列出来（也就是获取某个 apiObject 的完整列表），而 Watch 就是去监听事件，包括 `ADD`、`UPDATE`、`DELETE` 三个事件。在 WATCH 的时候，会开启一个和 API SERVER 的 HTTP 长连接，不断获取事件。
