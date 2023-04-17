@@ -1,0 +1,32 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: test
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: test
+  template:
+    metadata:
+      labels:
+        app: test
+    spec:
+      containers:
+        - name: test
+          image: alpine
+          command: # keep it running
+            - tail
+            - '-f'
+            - /dev/null
+          env:
+            - name: MYSQL_SERVER
+              valueFrom:
+                configMapKeyRef:
+                  name: mysql-config
+                  key: db_server
+            - name: MYSQL_ROOT_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: mysql-secret
+                  key: db_password

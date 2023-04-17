@@ -6,11 +6,6 @@ minikube start --image-mirror-country='cn' --image-repository='registry.cn-hangz
 # 使用 kubeadm
 + 安装可以按照这个步骤：https://raw.githubusercontent.com/Okabe-Rintarou-0/Cloud-OS-labs/main/k8s%20practice/k8s%E5%AE%9E%E8%B7%B5%E6%8A%A5%E5%91%8A.pdf
 
-    kubeadm init 那边应该修改为：
-    ```
-    kubeadm init --image-repository registry.aliyuncs.com/google_containers
-    ```
-
 ## 遇到的问题
 
 + kubeadm init 初始化报错：container runtime is not running

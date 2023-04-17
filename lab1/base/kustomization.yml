@@ -1,0 +1,6 @@
+resources:
+  - test_deployment.yml
+configMapGenerator:
+  - name: mysql-config
+    literals:
+      - db_server=mysql-service

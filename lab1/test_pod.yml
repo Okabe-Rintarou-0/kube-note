@@ -1,0 +1,23 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: test
+spec:
+  containers:
+    - name: test
+      image: alpine
+      command: # keep it running
+        - tail
+        - '-f'
+        - /dev/null
+      env:
+        - name: MYSQL_SERVER
+          valueFrom:
+            configMapKeyRef:
+              name: mysql-config
+              key: db_server
+        - name: MYSQL_ROOT_PASSWORD
+          valueFrom:
+            secretKeyRef:
+              name: mysql-secret
+              key: db_password
