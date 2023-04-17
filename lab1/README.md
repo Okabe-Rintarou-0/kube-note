@@ -344,3 +344,13 @@ echo $MYSQL_SERVER
 ```
 
 输出为 `dummy`，成功！
+
+注意，原来的 configmap 还是存在的（这种方式比较好，删除总是一个比较危险的行为）。
+
+```shell
+$ kubectl get configmap
+NAME                      DATA   AGE
+kube-root-ca.crt          1      174m
+mysql-config-2h6ddfhh59   1      4m48s
+mysql-config-5bhm7k67gb   1      6m35s
+```
