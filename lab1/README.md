@@ -80,6 +80,8 @@ kubernetes      ClusterIP   10.96.0.1        <none>        443/TCP          25m
 mysql-service   NodePort    10.108.143.219   <none>        3306:30160/TCP   14s
 ```
 
+其中 *3306* 是集群内的端口，pod 可以通过这个端口进行访问：`mysql-service:3306`（通过 service 名直接访问该服务）。30160 是对外可见的端口，在集群外部可以通过 `nodeIp:30160` 访问。
+
 可以看到集群暴露了 30160 的端口给外部使用，不过我们使用的是 Minikube，所有的 k8s 组件都跑在 Docker 容器里，
 所以我们必须要用 tunnel 才能真正访问该 Service：
 
